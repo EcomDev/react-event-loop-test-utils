@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace EcomDev\ReactTestUtil;
 
-
 use React\EventLoop\LoopInterface;
 
 class ConditionBasedLoopControl

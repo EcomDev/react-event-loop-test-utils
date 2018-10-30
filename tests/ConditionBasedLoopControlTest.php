@@ -97,7 +97,6 @@ class ConditionBasedLoopControlTest extends TestCase
             'Every 200ms',
             'Every 200ms'
         );
-
     }
 
     private function scheduleEveryTick(callable $recorder)
