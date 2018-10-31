@@ -56,6 +56,13 @@ class LoopFactory
         return $loop;
     }
 
+    public function createConditionRunLoopWithTimeout(callable $condition, float $timeout)
+    {
+        $loop = $this->createLoop();
+        $this->loopControlFactory->createWithCustomTimeout($loop, $condition, $timeout);
+        return $loop;
+    }
+
     private function createLoop(): LoopInterface
     {
         return Factory::create();

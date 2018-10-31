@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## Added 
+- Creation of conditional loop with custom timeout in `LoopFactory`
+
 ## [1.0.0]
 ### Added 
 - `ConditionBasedLoopControl` that is used on every tick of the loop to stop it when condition is met

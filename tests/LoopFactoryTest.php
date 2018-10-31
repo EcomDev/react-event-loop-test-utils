@@ -77,4 +77,36 @@ class LoopFactoryTest extends TestCase
             'Condition not met'
         );
     }
+
+    /**
+     * @test
+     */
+    public function allowsToSpecifyCustomTimeoutForConditionLoop()
+    {
+        $total = 0;
+        $loop = $this->factory->createConditionRunLoopWithTimeout(
+            function () use (&$total) {
+                $total++;
+                return $total === 5;
+            },
+            3
+        );
+
+        $recorder = new TickRecorder($loop);
+
+        $recorder->scheduleEveryTick(function () {
+            usleep(1000000);
+        });
+
+        $recorder->scheduleTickLabel('Condition not met');
+
+        $loop->run();
+
+        $recorder->assertRecordedLabels(
+            'Condition not met',
+            'Condition not met',
+            'Condition not met',
+            'Condition not met'
+        );
+    }
 }
